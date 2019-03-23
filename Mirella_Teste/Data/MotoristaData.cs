@@ -11,7 +11,7 @@ namespace Mirella_Teste.Data
     {
         public static void CriarMotorista(CriarMotoristaViewModel model)
         {
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"INSERT INTO Motoristas (Nome,DataNascimento,CPF,ModeloCarro,Sexo)" +
@@ -27,7 +27,7 @@ namespace Mirella_Teste.Data
         internal static List<MotoristaViewModel> BuscarMotoristasAtivos()
         {
             List<MotoristaViewModel> re = new List<MotoristaViewModel>();
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"SELECT * FROM Motoristas WHERE Status = 1";
@@ -57,7 +57,7 @@ namespace Mirella_Teste.Data
         public static List<MotoristaViewModel> BuscarMotorista(string nome)
         {
             List<MotoristaViewModel> re = new List<MotoristaViewModel>();
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"SELECT * FROM Motoristas ";
@@ -93,7 +93,7 @@ namespace Mirella_Teste.Data
 
         public static void AtivarMotorista(string id)
         {
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"UPDATE Motoristas SET Status = 1 WHERE Id = " + id;
@@ -107,7 +107,7 @@ namespace Mirella_Teste.Data
 
         public static void DesativarMotorista(string id)
         {
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"UPDATE Motoristas SET Status = 0 WHERE Id = " + id;

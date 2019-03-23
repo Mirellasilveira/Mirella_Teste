@@ -12,7 +12,7 @@ namespace Mirella_Teste.Data
         internal static List<CorridaViewModel> BuscarCorridas()
         {
             List<CorridaViewModel> re = new List<CorridaViewModel>();
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = @"
@@ -54,7 +54,7 @@ namespace Mirella_Teste.Data
 
         internal static void CriarCorrida(CriarCorridaViewModel model)
         {
-            string conexao = @"Data Source=DESKTOP-1SM8DBR\SQLEXPRESS; Initial Catalog=TesteAplicativoCarona; Integrated Security=SSPI";
+            string conexao = @"Data Source=tcp:testeaplicativo.database.windows.net,1433;Initial Catalog=TesteAplicativoBd;User Id=HenriqueBR@testeaplicativo.database.windows.net;Password=087615Baldin;";
             using (SqlConnection conn = new SqlConnection(conexao))
             {
                 string comando = $"INSERT INTO Corridas (IdMotorista,IdPassageiro,DataCorrida,Valor)" +
