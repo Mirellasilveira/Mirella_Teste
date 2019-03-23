@@ -1,0 +1,53 @@
+﻿@model List<Mirella_Teste.Models.MotoristaViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NovoLayout.cshtml";
+}
+
+<h2>Motoristas</h2>
+
+<form>
+    <div class="form-group">
+        <label for="NomeMotorista">Nome</label>
+        <input type="text" class="form-control" name="NomeMotorista" id="NomeMotorista" placeholder="Joãozinho">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">
+        Pesquisar
+    </button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Carro</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var modelItem in Model)
+        {
+            <tr>
+                <td>@modelItem.Id</td>
+                <td>@modelItem.Nome</td>
+                <td>@modelItem.ModeloCarro</td>
+                <td>@(modelItem.Status ? "Ativo" : "Inativo")</td>
+                <td>
+                    @if (modelItem.Status)
+                    {
+                        <a href="/Motoristas/Index?acao=Inativar&idMotorista=@(modelItem.Id)">Inativar</a>
+                    }
+                    else
+                    {
+                        <a href="/Motoristas/Index?acao=Ativar&idMotorista=@(modelItem.Id)">Ativar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Motoristas/Criar">Criar Novo Motorista</a>

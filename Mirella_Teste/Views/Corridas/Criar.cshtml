@@ -1,0 +1,41 @@
+﻿@model CriarCorridaViewModel
+@{
+    ViewData["Title"] = "Criar";
+    Layout = "~/Views/Shared/NovoLayout.cshtml";
+}
+
+<h2>Corridas</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Motoristas</label>
+        <select class="form-control" name="idMotorista" id="idMotorista">
+            @foreach (var moto in ViewBag.Motoristas as List<MotoristaViewModel>)
+            {
+                <option value="@moto.Id">@moto.Nome</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Passageiros</label>
+        <select class="form-control" name="idPassageiro" id="idPassageiro">
+            @foreach (var moto in ViewBag.Passageiros as List<PassageirosViewModel>)
+            {
+                <option value="@moto.Id">@moto.Nome</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Data da corrida</label>
+        <input type="date" class="form-control" name="DataCorrida" id="DataCorrida" placeholder="01/01/2000">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Valor</label>
+        <input type="number" class="form-control" name="Valor" id="Valor" placeholder="0,00">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Cadastrar
+    </button>
+</form>
+
+<a href="/Corridas/Index">Voltar</a>

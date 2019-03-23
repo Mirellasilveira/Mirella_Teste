@@ -1,0 +1,39 @@
+﻿@model List<Mirella_Teste.Models.PassageirosViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NovoLayout.cshtml";
+}
+
+<h2>Passageiros</h2>
+
+<form>
+    <div class="form-group">
+        <label for="NomePassageiro">Nome</label>
+        <input type="text" class="form-control" name="NomePassageiro" id="NomePassageiro" placeholder="Joãozinho">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">
+        Pesquisar
+    </button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var modelItem in Model)
+        {
+            <tr>
+                <td>@modelItem.Id</td>
+                <td>@modelItem.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Passageiros/Criar">Criar Novo Passageiro</a>
